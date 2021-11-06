@@ -3,9 +3,20 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
+	int (*f)(va_list);//?????GUADAFOC
+	va_list valist;
+
+	va_start(valist, format);
+
+	if (format == '\0')
+		return (0);
 
 	while (format[i] != '\0')
 	{
+		if (format[i] == %)
+		{
+			f = get_specifier(format[i + 1]);
+
 		putchar(format[i]);
 		count++;
 		i++;
