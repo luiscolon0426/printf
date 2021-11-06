@@ -10,9 +10,11 @@
  * @t: data type
  * @f: print function type belongs to
  */
+
+typedef struct print
 {
-  char *t;
-  void (*f)(va_list);
+	char *t;
+	void (*f)(va_list);
 } pt; /*@pt: print type*/
 
 
