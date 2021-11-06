@@ -17,11 +17,11 @@
 
 
 int _printf(const char *format, ...);
-int printchar(char *s, ...);
-int printdecimal(char *s, ...);
-int printstr(char *s, ...);
-int printint(char *s, ...);
-
+int printchar(va_list);
+int printdecimal(va_list);
+int printstr(va_list);
+int printint(va_list);
+int get_specifier(va_list);
 
 
 
