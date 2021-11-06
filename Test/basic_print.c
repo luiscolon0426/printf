@@ -3,7 +3,7 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
-	int (*f)(va_list);//?????GUADAFOC
+	int (*f)(va_list);
 	va_list valist;
 
 	va_start(valist, format);
@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		if (format[i] == %)
 		{
 			f = get_specifier(format[i + 1]);
-
+		}
 		putchar(format[i]);
 		count++;
 		i++;
