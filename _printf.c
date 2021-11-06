@@ -1,14 +1,15 @@
-#include "main.h"
-/**
- *
- */
-void print_all(const char * const format, ...)
+#include <stdio.h>
+
+int _printf(const char *format, ...)
 {
-	int i = 0;
-	int count = 0;
+	int i = 0, count = 0;
 
-	if ()
+	while (format[i] != '\0')
+	{
+		putchar(format[i]);
+		count++;
+		i++;
+	}
 
-
-	printf("")
+	return (count);
 }
