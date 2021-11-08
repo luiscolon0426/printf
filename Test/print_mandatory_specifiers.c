@@ -28,3 +28,10 @@ int print_decimal(va_list d)
 	int count;
 	int d = va_arg(d, int);
 
+	//I found this on the internet
+	int digit;
+	digit = d % 10;
+	digit = digit + '0';
+	d = d / 10;
+	putchar(d);
+}
