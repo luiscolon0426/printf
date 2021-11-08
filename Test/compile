@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc basic_print.c print_mandatory_specifiers.c _putchar.c
+./a.out
