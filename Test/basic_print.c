@@ -1,5 +1,20 @@
 #include "main.h"
 
+int check_valid_specifier(char c)
+{
+	int i = 0;
+	char a[] = {'c', 's', 'd', 'i', '\0'};
+
+	while (a[i])
+	{
+		if (c == a[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+
 int get_specifier(char char_mod, va_list valist)
 {
 	int i = 0, count = 0;
@@ -7,8 +22,8 @@ int get_specifier(char char_mod, va_list valist)
 	pt p[] = {
 		{'c', print_char},
 		{'s', print_str},
-//		{'d', print_decimal},
-//		{'i', print_int},
+		{'d', print_num},
+		{'i', print_num},
 		{'\0', NULL}
 	};
 
@@ -29,9 +44,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
 	va_list valist;
-
 	va_start(valist, format);
-
 
 	if (format == NULL)
 		return (0);
@@ -40,12 +53,24 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			count += get_specifier(format[i + 1], valist);
-			return (count);
+			if (check_valid_specifier(format[i + 1]))
+			{
+				count += get_specifier(format[i + 1], valist);
+				i += 2;
+			}
+			else
+			{
+				_putchar(format[i]);
+				count++;
+				i++;
+			}
 		}
-		_putchar(format[i]);
-		count++;
-		i++;
+		else
+		{
+			_putchar(format[i]);
+			count++;
+			i++;
+		}
 	}
 	return (count);
 }
