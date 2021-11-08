@@ -27,12 +27,31 @@ int print_str(va_list s)
 int print_num(va_list i)
 {
 	int count;
-	int d = va_arg(d, int);
+	int d = va_arg(i, int);
 
-	//I found this on the internet
-	int digit;
+	//si es negativo, print - and make it positive
+	if (d < 0)
+	{
+		_putchar('-');
+		d = -d;
+	}
+
+	//remueve el last digit y recurre to print all of them
+	if (d / 10)
+	{
+		count += print_num(d);
+	}
+
+	//print last digit
+	_putchar(d % 10 + '0');
+	count++;
+
+	return (count);
+}
+	/*I found this on the internet
+	//int digit;
 	digit = d % 10;
 	digit = digit + '0';
 	d = d / 10;
-	putchar(d);
-}
+	_putchar(d);
+}*/
