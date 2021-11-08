@@ -100,5 +100,11 @@ int main(void)
 	len2 = printf("print string %s\n", "heeey");
 
 	printf("This is len: %d and this is len2 %d\n", len, len2);
+
+	len = _printf("print int %i\n", 1234);
+	len2 = printf("print number %i\n", 1234);
+
+	printf("This is len: %d and this is len2 %d\n", len, len2);
+
 	return (0);
 }
