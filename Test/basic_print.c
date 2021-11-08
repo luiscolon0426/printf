@@ -101,8 +101,8 @@ int main(void)
 
 	printf("This is len: %d and this is len2 %d\n", len, len2);
 
-	len = _printf("print int %i\n", 1234);
-	len2 = printf("print number %i\n", 1234);
+	len = _printf("print int [%i] [%i]\n", 123467, -123456);
+	len2 = printf("print number [%i] [%i]\n", 123467, -123456);
 
 	printf("This is len: %d and this is len2 %d\n", len, len2);
 

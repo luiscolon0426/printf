@@ -13,7 +13,7 @@ int print_str(va_list s)
 	char *str = va_arg(s, char *);
 
 	if (str == NULL)
-		str == "(null)";
+		str = "(null)";
 
 	while (str[i])
 	{
@@ -24,7 +24,7 @@ int print_str(va_list s)
 }
 
 //under construction
-int print_num(va_list i)
+/*int print_num(va_list i)
 {
 	int count;
 	int d = va_arg(i, int);
@@ -48,7 +48,7 @@ int print_num(va_list i)
 
 	return (count);
 }
-	/*I found this on the internet
+	I found this on the internet
 	//int digit;
 	digit = d % 10;
 	digit = digit + '0';
@@ -59,7 +59,7 @@ int print_num(va_list i)
 
 
 
-/*int print_num(va_list i)
+int print_num(va_list i)
 {
 	int number = 0;
 	int index = 0;
@@ -71,7 +71,7 @@ int print_num(va_list i)
 		if (number < 0)
 		{
 			counter += _putchar ('-');
-			n = number - (-1);
+			n = number * (-1);
 		}
 		else
 			n = number;
@@ -92,10 +92,10 @@ int print_num(va_list i)
 		}
 		return (counter);
 	}
-}*/
+}
 
 //under construction
-int print_num(va_list i)
+/*int print_num(va_list i)
 {
     int count;
     int num = va_arg(i, int);
@@ -120,7 +120,7 @@ int print_num(va_list i)
 
     return (count);
 }
-    /*I found this on the internet
+    *I found this on the internet
     //int digit;
     digit = d % 10;
     digit = digit + '0';
