@@ -40,12 +40,16 @@ int _printf(const char *format, ...)
 
 
 	//print string cuando no tiene data specifiers
-	while (format[i] != '\0' && format[i] != '%')
+	while (format[i] != '\0')
 	{
-		_putchar(format[i]);
-		count++;
-		i++;
-	}
+		if (format[i] == %)
+		{
+			f = get_specifier(format[i + 1]);
+		}
+			_putchar(format[i]);
+			count++;
+			i++;
+		}
 	//si string no tenia data specifiers, ya lo imprimí en el ciclo anterior, asi que acaba mi programa y
 	//devuelve el total of chars printed
 	if (!format[i])
