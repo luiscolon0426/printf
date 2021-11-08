@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -10,21 +11,24 @@
  * @t: data type
  * @f: print function type belongs to
  */
-
 typedef struct print
 {
 	char t;
 	int (*f)(va_list);
-} pt; /*@pt: print type*/
+} pt;
 
 
 int _printf(const char *format, ...);
-int printchar(va_list);
-int printdecimal(va_list);
-int printstr(va_list);
-int printint(va_list);
-int get_specifier(va_list);
 
+int print_char(va_list c);
+
+int print_decimal(va_list d);
+
+int print_str(va_list s);
+
+int print_int(va_list i);
+
+int get_specifier(va_list);
 
 
 #endif /* MAIN_H */
