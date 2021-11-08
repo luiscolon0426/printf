@@ -2,27 +2,28 @@
 
 int print_char(va_list c)
 {
-	_putchar(c);
+	char ch = va_arg(c, int);
+	_putchar(ch);
 	return (1);
 }
 
 int print_str(va_list s)
 {
 	int i = 0;
-	char *s = va_arg(s, char *);
+	char *str = va_arg(s, char *);
 
-	if (s == NULL)
-		s == "(null)";
+	if (str == NULL)
+		str == "(null)";
 
-	while (s[i])
+	while (str[i])
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		i++;
 	}
 	return (i);
 }
 
-//under construction
+/*under construction
 int print_decimal(va_list d)
 {
 	int count;
@@ -34,4 +35,4 @@ int print_decimal(va_list d)
 	digit = digit + '0';
 	d = d / 10;
 	putchar(d);
-}
+}*/
