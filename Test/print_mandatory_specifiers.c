@@ -23,8 +23,8 @@ int print_str(va_list s)
 	return (i);
 }
 
-/*under construction
-int print_decimal(va_list d)
+//under construction
+int print_num(va_list i)
 {
 	int count;
 	int d = va_arg(d, int);
@@ -35,4 +35,4 @@ int print_decimal(va_list d)
 	digit = digit + '0';
 	d = d / 10;
 	putchar(d);
-}*/
+}
