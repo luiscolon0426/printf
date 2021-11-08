@@ -13,8 +13,8 @@
  */
 typedef struct print
 {
-  char t;
-  int (*f)(va_list);
+char t;
+int (*f)(va_list);
 } pt;
 
 
@@ -30,5 +30,8 @@ int print_int(va_list i);
 
 int get_specifier(char char_mod, va_list valist);
 
+int check_valid_specifier(char c);
+
+int _putchar(char c);
 
 #endif /* MAIN_H */
