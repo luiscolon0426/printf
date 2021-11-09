@@ -24,7 +24,7 @@ int print_str(va_list s)
 }
 
 
- // edge cases: bregar con range de int (-2,147,483,648 a 2,147,483,647)
+/* edge cases: bregar con range de int (-2,147,483,648 a 2,147,483,647) */
 
 int print_num(va_list i)
 {
