@@ -23,40 +23,6 @@ int print_str(va_list s)
 	return (i);
 }
 
-//under construction
-/*int print_num(va_list i)
-{
-	int count;
-	int d = va_arg(i, int);
-
-	//si es negativo, print - and make it positive
-	if (d < 0)
-	{
-		_putchar('-');
-		d = -d;
-	}
-
-	//remueve el last digit y recurre to print all of them
-	if (d / 10)
-	{
-		count += print_num(d);
-	}
-
-	//print last digit
-	_putchar(d % 10 + '0');
-	count++;
-
-	return (count);
-}
-	I found this on the internet
-	//int digit;
-	digit = d % 10;
-	digit = digit + '0';
-	d = d / 10;
-	_putchar(d);
-}*/
-
-
 
 
 int print_num(va_list i)
@@ -77,7 +43,7 @@ int print_num(va_list i)
 			n = number;
 		if (n == 0)
 		{
-			counter += _putchar (n + 0);
+			counter += _putchar(n + 0);
 			return (counter);
 		}
 		while (n != 0)
@@ -92,38 +58,33 @@ int print_num(va_list i)
 		}
 		return (counter);
 	}
-}
+} 
 
-//under construction
-/*int print_num(va_list i)
+/*under construction
+
+int print_num(va_list i)
 {
-    int count;
-    int num = va_arg(i, int);
+	int div = 1, count = 0, number, n;
 
-    //si es negativo, print - and make it positive
-    if (num < 0)
-    {
-        _putchar('-');
-        num = -num;
-    }
+	number = va_arg(i, int);
 
-    //remueve el last digit y recurre to print all of them
-    if (num / 10)
-        w to pas
-    {
-        count += print_num(num);
-    }
+	if (number < 0)
+	{
+		count += _putchar('-');
+		n = number * -1;
+	}
+	else
+		n = number;
 
-    //print last digit
-    _putchar(num % 10 + '0');
-    count++;
+	while ((n / div) > 9)
+		div *= 10;
 
-    return (count);
+	while (div >= 1)
+	{
+		_putchar(((n / div) % 10) + '0');
+		div /= 10;
+		count++;
+	}
+	return (count);
 }
-    *I found this on the internet
-    //int digit;
-    digit = d % 10;
-    digit = digit + '0';
-    d = d / 10;
-    _putchar(d);
-}*/
+*/
