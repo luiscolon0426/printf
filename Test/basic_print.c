@@ -102,7 +102,7 @@ int main(void)
 	printf("This is len: %d and this is len2 %d\n", len, len2);
 
 	len = _printf("print int [%i] [%d]\n", 123467, -123456);
-	len2 = printf("print number [%i] [%d]\n", 123467, -123456);
+	len2 = printf("print int [%i] [%d]\n", 123467, -123456);
 
 	printf("This is len: %d and this is len2 %d\n", len, len2);
 
