@@ -67,10 +67,14 @@ int _printf(const char *format, ...)
 
 	va_start(valist, format);
 
+	if (valist == NULL)
+		return (-1);
 	if (format == NULL)
-		return (0);
+		return (-1);
+	if (format[0] == '%' && format[1] == '\0')
+		return (-1);
 
-	while (format[i] != '\0')
+	while (format[i] != '\0' && format)
 	{
 		if (format[i] == '%')
 		{
@@ -79,6 +83,8 @@ int _printf(const char *format, ...)
 				count += get_specifier(format[i + 1], valist);
 				i += 2;
 			}
+			else if (format[i] == '%' && format[i + 1] == '\0')
+				return (-1);
 			else
 			{
 				_putchar(format[i]);
@@ -93,42 +99,6 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
+	va_end(valist);
 	return (count);
-}
-
-
-
-
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-
-
-
-int main(void)
-{
-	int len, len2;
-
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-
-	printf("This is len: %d and this is len2 %d\n", len, len2);
-
-	len = _printf("print char %c\n", 'l');
-	len2 = printf("print char %c\n", 'l');
-
-	printf("This is len: %d and this is len2 %d\n", len, len2);
-	len = _printf("print string %s\n", "heeey");
-	len2 = printf("print string %s\n", "heeey");
-
-	printf("This is len: %d and this is len2 %d\n", len, len2);
-
-	len = _printf("print int [%i] [%d]\n", 123467, -123456);
-	len2 = printf("print int [%i] [%d]\n", 123467, -123456);
-
-	printf("This is len: %d and this is len2 %d\n", len, len2);
-
-	return (0);
 }
