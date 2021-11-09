@@ -1,5 +1,12 @@
 #include "main.h"
 
+
+/**
+ * check_valid_specifier - checks specifier and assigns corresponding function
+ * @c: character to be checked
+ *
+ * Return: 1 if valid 0 if not
+ */
 int check_valid_specifier(char c)
 {
 	int i = 0;
@@ -15,6 +22,13 @@ int check_valid_specifier(char c)
 }
 
 
+/**
+ * get_specifier - receives valid spec and assigns correct function
+ * @char_mod: valid specifier
+ * @valist: data to be printed
+ *
+ * Return: total of printed characters
+ */
 int get_specifier(char char_mod, va_list valist)
 {
 	int i = 0, count = 0;
@@ -40,10 +54,17 @@ int get_specifier(char char_mod, va_list valist)
 }
 
 
+/**
+ * _printf - prints anything
+ * @format: string to print
+ *
+ * Return: total count of characters printed
+ */
 int _printf(const char *format, ...)
 {
 	int i = 0, count = 0;
 	va_list valist;
+
 	va_start(valist, format);
 
 	if (format == NULL)
@@ -77,12 +98,16 @@ int _printf(const char *format, ...)
 
 
 
+
 /**
  * main - Entry point
  *
  * Return: Always 0
  */
-/*int main(void)
+
+
+
+int main(void)
 {
 	int len, len2;
 
@@ -95,7 +120,6 @@ int _printf(const char *format, ...)
 	len2 = printf("print char %c\n", 'l');
 
 	printf("This is len: %d and this is len2 %d\n", len, len2);
-	
 	len = _printf("print string %s\n", "heeey");
 	len2 = printf("print string %s\n", "heeey");
 
@@ -107,4 +131,4 @@ int _printf(const char *format, ...)
 	printf("This is len: %d and this is len2 %d\n", len, len2);
 
 	return (0);
-}*/
+}
