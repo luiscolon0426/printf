@@ -1,0 +1,71 @@
+.TH _PRINTF 3 2021-11-9 GNU
+
+.SH NAME
+
+_printf - formated output conversion
+
+.SH SYNOPSIS
+
+#include "main.h"
+
+int _printf(const char *format, ...);
+
+int print_char(va_list c);
+
+int print_str(va_list s);
+
+int print_num(va_list i);
+
+int get_specifier(char char_mod, va_list valist);
+
+int check_valid_specifier(char c);
+
+int _putchar(char c);
+
+typedef struct converter
+.RS 2
+{
+
+int (*f)(va_list);
+
+}
+
+convert;
+.RE
+.SH DESCRIPTION
+
+The function in the _printf() produce output according to a format as described below. The function _printf() write output
+to stdout, the standard output stream.
+
+The _printf() function write the output under the control of a format string that specifiers how subsequent arguments (or arguments accesed via the variable-length arguent facilities of stdarg()) are converted for output
+
+Format of the format string
+.RS3
+The format string is a character string, begginning and ending in its initial shift state, if any. The format string is composed of zero or more directiver: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent argument. Each conversion specification is instroduced by the %, and ends with a conversion specifier. In between there may be (in this order) zero or more flags, an optional minimum field witdh, and optional precisionand an optional lenght modifier
+.RE
+
+FORMAT controls the output as in C printf.  Interpreted sequences are:
+
+%S 	 string
+
+%i 	 integer
+
+%d 	 integer
+
+%c 	 character
+
+.B Example
+
+#include "main.h"
+
+int main(void)
+
+	_printf("This is our own _printf function")
+
+		return (0);
+
+
+
+
+.SH AUTHORS
+Amisaday Martinez Campos & Luis Colon Santiago
