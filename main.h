@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include <limits.h>
 
 /**
  * struct print - choose corresponding print function
@@ -13,8 +12,8 @@
  */
 typedef struct print
 {
-  char t;
-  int (*f)(va_list);
+char t;
+int (*f)(va_list);
 } pt;
 
 
