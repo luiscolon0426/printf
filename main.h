@@ -13,8 +13,8 @@
  */
 typedef struct print
 {
-char t;
-int (*f)(va_list);
+  char t;
+  int (*f)(va_list);
 } pt;
 
 
@@ -22,11 +22,9 @@ int _printf(const char *format, ...);
 
 int print_char(va_list c);
 
-int print_decimal(va_list d);
-
 int print_str(va_list s);
 
-int print_int(va_list i);
+int print_num(va_list i);
 
 int get_specifier(char char_mod, va_list valist);
 
