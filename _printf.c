@@ -1,27 +1,5 @@
 #include "main.h"
 
-
-/**
- * check_valid_specifier - checks specifier and assigns corresponding function
- * @c: character to be checked
- *
- * Return: 1 if valid 0 if not
- */
-int check_valid_specifier(char c)
-{
-	int i = 0;
-	char a[] = {'c', 's', 'd', 'i', '\0'};
-
-	while (a[i])
-	{
-		if (c == a[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-
 /**
  * get_specifier - receives valid spec and assigns correct function
  * @char_mod: valid specifier
@@ -50,6 +28,9 @@ int get_specifier(char char_mod, va_list valist)
 		}
 		i++;
 	}
+
+	count += _putchar('%');
+	count += _putchar(char_mod);
 	return (count);
 }
 
@@ -72,25 +53,24 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			i++;
-			while (format[i] == ' ' && format[i] != '%' && format[i] != '\0')
-				i++;
-			if (check_valid_specifier(format[i]))
+			if (format[i + 1] == '%')
 			{
-				count += get_specifier(format[i], valist);
+				count += _putchar(format[i + 1]);
 				i++;
 			}
 			else
 			{
-				_putchar(format[i]);
-				count++;
+				count += get_specifier(format[++i], valist);
 				i++;
 			}
 		}
 		else
 		{
+			if (format[i] == '%' && format[i + 1] == '\0')
+				return (-1);
+
 			_putchar(format[i]);
 			count++;
 			i++;
