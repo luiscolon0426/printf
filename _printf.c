@@ -67,24 +67,21 @@ int _printf(const char *format, ...)
 
 	va_start(valist, format);
 
-	if (valist == NULL)
-		return (-1);
-	if (format == NULL)
-		return (-1);
-	if (format[0] == '%' && format[1] == '\0')
+	if (valist == NULL || format == NULL)
 		return (-1);
 
-	while (format[i] != '\0' && format)
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			if (check_valid_specifier(format[i + 1]))
+			i++;
+			while (format[i] == ' ' && format[i] != '%' && format[i] != '\0')
+				i++;
+			if (check_valid_specifier(format[i]))
 			{
-				count += get_specifier(format[i + 1], valist);
-				i += 2;
+				count += get_specifier(format[i], valist);
+				i++;
 			}
-			else if (format[i] == '%' && format[i + 1] == '\0')
-				return (-1);
 			else
 			{
 				_putchar(format[i]);
