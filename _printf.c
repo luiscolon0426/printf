@@ -4,6 +4,7 @@
  * get_specifier - receives valid spec and assigns correct function
  * @char_mod: valid specifier
  * @valist: data to be printed
+ * @spaces: flag to verify spaces after %
  *
  * Return: total of printed characters
  */
@@ -30,12 +31,12 @@ int get_specifier(char char_mod, va_list valist, int spaces)
 	}
 
 	count += _putchar('%');
-	
+
 	if (spaces == 1)
 		count += _putchar(' ');
-	
+
 	count += _putchar(char_mod);
-	
+
 	return (count);
 }
 
@@ -48,7 +49,7 @@ int get_specifier(char char_mod, va_list valist, int spaces)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, spaces;
+	int i = 0, count = 0, spaces = 0;
 	va_list valist;
 
 	va_start(valist, format);
@@ -70,7 +71,7 @@ int _printf(const char *format, ...)
 				while (format[i + 1] == ' ' && format[i + 1] != '\0')
 					i++;
 				if (format[i] == ' ')
-					spaces == 1;
+					spaces = 1;
 				count += get_specifier(format[++i], valist, spaces);
 				i++;
 			}
