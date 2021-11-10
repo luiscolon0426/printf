@@ -49,8 +49,7 @@ int print_str(va_list s)
 int print_num(va_list i)
 {
 	int number = va_arg(i, int);
-	int index = 0;
-	int counter = 0;
+	int idx = 0, counter = 0;
 	int array[13];
 	unsigned int n;
 	{
@@ -64,20 +63,20 @@ int print_num(va_list i)
 
 		if (n == 0)
 		{
-			counter += _putchar(n + 0);
+			counter += _putchar(n + '0');
 			return (counter);
 		}
 
 		while (n != 0)
 		{
-			array[index] = n % 10;
-			n = n / 10;
-			index++;
+			array[idx] = n % 10;
+			n /= 10;
+			idx++;
 		}
 
-		for (index = index - 1; index >= 0; index--)
+		for (idx -= 1; idx >= 0; idx--)
 		{
-			counter += _putchar(array[index] + '0');
+			counter += _putchar(array[idx] + '0');
 		}
 		return (counter);
 	}
