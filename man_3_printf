@@ -16,7 +16,7 @@ int print_str(va_list s);
 
 int print_num(va_list i);
 
-int get_specifier(char char_mod, va_list valist);
+int get_specifier(char char_mod, va_list valist, int spaces);
 
 int _putchar(char c);
 
