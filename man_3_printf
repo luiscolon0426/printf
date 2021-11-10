@@ -44,7 +44,7 @@ The format string is a character string, begginning and ending in its initial sh
 
 FORMAT controls the output as in C printf.  Interpreted sequences are:
 
-%S 	 string
+%s 	 string
 
 %i 	 integer
 
@@ -61,6 +61,21 @@ int main(void)
 	_printf("This is our own _printf function")
 
 		return (0);
+
+.B Example #2
+
+#include "main.h"
+
+int main(void)
+{
+    _printf("This will print a character: %c\n", 'C');
+    _printf("This will print a string: %s\n", "String");
+    _printf("This will print a number using the i specifier: %i\n", 34);
+    _printf("This will print a number using the d specifier: %d\n", 34);
+
+    return (0);
+}
+
 
 
 
